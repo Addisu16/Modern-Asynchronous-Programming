@@ -27,6 +27,7 @@ async function login(){
         document.getElementById('logout').style.display='block';
         document.getElementById("favorites").style.display='block';
         document.getElementById('play').style.display='block';
+        document.getElementById("repeat").style.display='block';
         fetchAllSongs();
         
      
@@ -139,6 +140,7 @@ function logout() {
     document.getElementById("favorites").style.display='none';
     document.getElementById('main-div').style.display='block';
     document.getElementById('play').style.display='none';
+    document.getElementById("repeat").style.display='none';
     
 
     
