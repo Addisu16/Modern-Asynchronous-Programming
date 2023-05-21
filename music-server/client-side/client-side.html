@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./client-side.js"></script>
+    <link href="./client-side.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="main-div">
+       <label for="" id="user">username:<input id="username" /></label>
+       <label for="" id="pass">password: <input id="password" type="password" /></label>
+  <button id="loginBtn">Login</button>
+        <span id="errorMsg"></span>
+    </div>
+
+    <div>
+        <button id="logout" style="display:none">Logout</button>
+    </div>
+    <div id="main-div2"> 
+
+
+
+
+
+    </div>
+
+   
+    <div id="favorites">
+
+        <div>
+            <marquee id="musicTitle"></marquee>
+        </div>
+    
+        <button id="priv"><img src="prev.png" alt="" width="20px"></button>
+        <button id="next"><img src="next.png" alt="" width="20px"></button>
+        
+        <button id="shuffle" ><img src="shuffle.png" alt="" width="20px"></button>
+        <button id="repeat" style="display:none;"><img src="repete.png" alt="" width="20px"></button>
+        <br>
+        <audio controls autoplay id="play"></audio>
+
+
+</body>
+</html>
