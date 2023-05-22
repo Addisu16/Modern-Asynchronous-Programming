@@ -41,7 +41,7 @@ async function login() {
 }
 
 
-let musicList = null;
+let myMusicList = null;
 
 async function fetchAllSongs() {
   let response = await fetch("http://localhost:3000/api/music", {
@@ -50,7 +50,7 @@ async function fetchAllSongs() {
       },
   })
   let songs = await response.json();
-  musicList = songs;
+  myMusicList = songs;
   printAllSongs(songs);
 };
 
@@ -84,7 +84,7 @@ let favorites = [];
 let index = 0;
 let countt = 1;
 function addToFavorites(id) {
-  for (let each of musicList) {
+  for (let each of myMusicList) {
       if (each.id == id) {
           if (favorites.includes(each)) {
               continue;
@@ -151,7 +151,7 @@ async function playMusic(music, title, id) {
       }
       audio.src = arr[currentPlayingIndex];
       document.getElementById("musicName").innerHTML =
-          musicList[currentPlayingIndex].title;
+          myMusicList[currentPlayingIndex].title;
   };
   console.log(favorites);
 }
