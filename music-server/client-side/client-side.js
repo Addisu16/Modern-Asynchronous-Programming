@@ -1,6 +1,7 @@
-window.onload = function(){
-    document.getElementById('loginBtn').onclick=login;
-    document.getElementById('logout').onclick = logout;
+window.onchange = function(){
+
+    document.getElementById('loginBtn').addEventListener('click',login);
+    document.getElementById('logout').addEventListener('click',logout);
 }
 
 async function login(){
@@ -27,6 +28,8 @@ async function login(){
         document.getElementById('logout').style.display='block';
         document.getElementById("favorites").style.display='block';
         document.getElementById('play').style.display='block';
+        document.getElementById('table-div').style.display='block';
+
         fetchAllSongs();
         
      
@@ -46,35 +49,35 @@ async function fetchAllSongs() {
       Authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
   })
-    .then((response) => response.json())
-    .then((songs) => {
-      console.log(songs);
+    let songs= await response.json();
       musicList = songs;
       printAllSongs(songs);
-    });
-}
+    };
 
 //Display all songs
 //=================================================================================================================//
+let count=1;
 function printAllSongs(list) {
-  for (let each of list) {
-    fetch(`http://localhost:3000/${each.urlPath}`, {
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    }).then((songs) => {
-      
-      let myTable = `
-        <tr>
-        <td><a href="${songs.url}">${each.title}</a><br></td>
-        <td><button class="addBtn" id=${each.id} onclick="addToFavorites('${each.id}')">+</button></td>
-        </tr>
-       `;
-      document.getElementById("main-div2").innerHTML += myTable;
-    });
+for (let each of list) {
+          fetch(`http://localhost:3000/${each.urlPath}`, {
+  headers: {
+  Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+  },
+  }).then((songs) => {
+  let myTable = `
+            <tr>
+            <td>${count++}</td>
+            <td><a href="${songs.url}">${each.title}</a><br></td>
+            <td>${each.releaseDate}</td>
+            <td><button class="addBtn" id=${each.id} onclick="addToFavorites('${each.id}')">+</button></td>
+            </tr>
+           `;
+              document.getElementById("myTable").innerHTML += myTable;
+          });
+      }
   }
-}
-//Add to favorite list
+  
+  //Add to favorite list
 //=================================================================================================================//
 let myFavoriteMusicList = [];
 
@@ -113,15 +116,6 @@ function addToFavorites(id) {
               "Content-Type": "application/json",
             },
           })
-            // .then((response) => response.json())
-            // .then((item) => {
-            //   print.innerHTML += `
-            //         id:  ${item.id} <br> 
-            //         name: ${item.title} <br> 
-            //         price: ${item.price} <br>
-            //         description: ${item.description}<br> ==========================<br>`;
-            // })
-          //=======================================================================================//
           index++;
 
           document.getElementById("favorites").innerHTML += myFavoriteTable;
@@ -131,14 +125,23 @@ function addToFavorites(id) {
   }
 }
 
-function logout() {
+function logout(){
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("token");
+    document.getElementById('main-div2').innerHTML = '';
+    document.getElementById('table-div').innerHTML='';
     document.getElementById('main-div2').style.display='none';
     document.getElementById('logout').style.display='none';
     document.getElementById("favorites").style.display='none';
+   
     document.getElementById('main-div').style.display='block';
+   
     document.getElementById('play').style.display='none';
+    document.getElementById('priv').style.display='none';
+    document.getElementById('next').style.display='none';
+    document.getElementById('shuffle').style.display='none';
+    document.getElementById('repeat').style.display='none';
+
     
 
     
