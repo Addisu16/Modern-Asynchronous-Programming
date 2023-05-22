@@ -221,11 +221,12 @@ function createTable(table) {
     
     
     // Play previous
-    //let previous = document.getElementById("previous");
+let previous = document.getElementById("previous");
     
-    const previousButton = async function() {
-        let playPrevious = currentPlayingIndex;
       
+  previous.onclick=async ()=> {
+        let playPrevious = currentPlayingIndex;
+        
         if (favorites.length !== 0) {
           if (currentPlayingIndex === 0) {
             playPrevious = favorites.length - 1;
@@ -269,7 +270,7 @@ function createTable(table) {
                 },
             });
             let data = await response.json();
-            arr.push(data.url);
+            arr.push(data.urlPath);
         }
     
         let audio = document.getElementById("play");
@@ -299,7 +300,7 @@ function createTable(table) {
             document.getElementById("musicName").innerHTML = "";
             document.getElementById("play").src = "";
             document.getElementById("musicName").innerHTML = favorites[currentPlayingIndex].title;
-            document.getElementById("play").src = repeatPlay.url;
+            document.getElementById("play").src = repeatPlay.urlPath;
         }
     };
     

@@ -28,8 +28,8 @@
         </div>
         <button id="logout" style="display:none">Logout</button>
     </div>
-<div id="main-div2" style="display: none;">
- <div id="table-div">
+    <div id="main-div2" style="display: none;">
+        <div id="table-div">
             <h1 style="text-decoration-style: wavy;color:red">Songs you may intersted</h1>
             <table id="myTable">
                 <tr>
@@ -50,19 +50,23 @@
             </table>
         </div>
 
-        <div>
-            <marquee id="musicName"></marquee>
-        </div>
+        <!-- <div>
+            <marquee id="musicName">musicName</marquee>
+        </div> -->
+        <div class="slider">
+            <span class="slide-text" id="musicName">musicName</span>
+          </div>
+          
 
         <div id="musicPlayer">
 
                 <div class="player-buttons">
+                <button id="previous" >Previous</button>
+                     <button id="next-Button" onclick="nextButton()">Next</button>
 
-                        <button id="previous" onclick="previousButton()">Previous</button>
 
-                        <button id="next-Button" onclick="nextButton()">Next</button>
-
-                    </div>
+                   
+            </div>
 
                 <div class="music-player">
 

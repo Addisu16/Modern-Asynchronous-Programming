@@ -90,3 +90,29 @@ tr:nth-child(even) {
   margin-bottom: 10px;
   justify-content: space-between;
 }
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-text {
+  animation: slide 10s infinite;
+  display: inline-block;
+  white-space: nowrap;
+  color:red;
+  text-decoration-style:wavy;
+  font-size: larger;
+  border: 1px solid greenyellow;
+  background-color: aliceblue;
+  
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(1500%);
+  }
+}
