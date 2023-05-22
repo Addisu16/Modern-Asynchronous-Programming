@@ -195,9 +195,9 @@ function createTable(table) {
       
     favorites = []; // Assuming you have an array of favorite music
     let currentPlayingIndex = 0;
-    let nextBtn = document.getElementById("next-Button");
+    //let nextBtn = document.getElementById("next-Button");
     
-    nextBtn.onclick = async function () {
+    const nextButton = async function () {
         let nextMusic = currentPlayingIndex;
         if (favorites.length !== 0) {
             nextMusic = (nextMusic + 1) % favorites.length;
@@ -221,43 +221,43 @@ function createTable(table) {
     
     
     // Play previous
-    let previous = document.getElementById("previous");
+    //let previous = document.getElementById("previous");
     
-    previous.onclick = async function () {
+    const previousButton = async function() {
         let playPrevious = currentPlayingIndex;
-    
+      
         if (favorites.length !== 0) {
-            if (currentPlayingIndex === 0) {
-                playPrevious = favorites.length - 1;
-            } else {
-                playPrevious--;
-                if (playPrevious < 0) {
-                    playPrevious = favorites.length - 1;
-                }
+          if (currentPlayingIndex === 0) {
+            playPrevious = favorites.length - 1;
+          } else {
+            playPrevious--;
+            if (playPrevious < 0) {
+              playPrevious = favorites.length - 1;
             }
-            let prevPlay = await fetch(
-                `http://localhost:3000/${favorites[playPrevious].urlPath}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-                    },
-                }
-            );
-    
-            document.getElementById("musicName").innerHTML = "";
-            document.getElementById("play").src = "";
-    
-            document.getElementById("musicName").innerHTML = favorites[playPrevious].title;
-            document.getElementById("play").src = prevPlay.url;
-            currentPlayingIndex = playPrevious;
+          }
+          let prevPlay = await fetch(
+            `http://localhost:3000/${favorites[playPrevious].urlPath}`,
+            {
+              headers: {
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+              },
+            }
+          );
+      
+          document.getElementById("musicName").innerHTML = "";
+          document.getElementById("play").src = "";
+      
+          document.getElementById("musicName").innerHTML = favorites[playPrevious].title;
+          document.getElementById("play").src = prevPlay.urlPath; 
+          currentPlayingIndex = playPrevious;
         }
-    };
-    
+      };
+      
     // Shuffle
-    let shuffle = document.getElementById("shuffle");
-    let repeat = document.getElementById("repeat");
+    //let shuffle = document.getElementById("shuffle");
+   // let repeat = document.getElementById("repeat");
     
-    shuffle.onclick = async function () {
+    const shuffle = async function () {
         shuffle.style.display = "none";
         repeat.style.display = "block";
     
@@ -282,7 +282,7 @@ function createTable(table) {
     };
     
     // Repeat one song
-    repeat.onclick = async function () {
+    const repeat = async function () {
         repeat.style.display = "none";
         shuffle.style.display = "block";
     
