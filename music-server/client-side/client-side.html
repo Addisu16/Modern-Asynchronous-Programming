@@ -15,8 +15,8 @@
 
 
         <div>
-            <img src="https://img.icons8.com/?size=2x&id=80829&format=png" alt="" style="width:40px;height:40px">PLAY
-            POP
+            <img src="https://img.icons8.com/?size=2x&id=80829&format=png" alt="" style="width:40px;height:40px">Play
+            Favorites
         </div>
         <div id="main-div">
 
@@ -39,7 +39,7 @@
                     <th>ADD</th>
                 </tr>
             </table>
-            <h1>
+            <h1 style="color:red">
                 Your playlist
             </h1>
             <table id="myFavoriteTable">
@@ -55,14 +55,18 @@
         </div> -->
         <div class="slider">
             <span class="slide-text" id="musicName"></span>
-          </div>
-          
+        </div>
+
 
         <div id="musicPlayer">
 
                 <div class="player-buttons">
-                <button id="previous" >Previous</button>
-                     <button id="next-Button" onclick="nextButton()">Next</button>
+                <button id="previous" onclick="prevBtn()"><img
+                        src="https://img.icons8.com/?size=512&id=37588&format=png" alt=""
+                        style="width:30px;height:30px;"></button>
+                     <button id="next-Button" onclick="nextButton()"><img
+                        src="https://img.icons8.com/?size=512&id=3Yrvxt0BSudc&format=png" alt=""
+                        style="width:28px;height:28px;"></button>
 
 
                    
@@ -80,9 +84,15 @@
 
                     </div>
             <div>
-                <button id="shuffle" onclick="shuffle()">Shuffle</button>
-                <button id="repeat" onclick="repeat()">Repeat</button>
-                 
+                <!-- <button id="shuffleAndRepeat" class="shuffle" onclick="shuffleAndRepeatBtn()">Shuffle/Repeat</button> -->
+                <button id="shuffleBtn" onclick="shuffle()"><img
+                        src="https://img.icons8.com/?size=512&id=7Iho6fNm4wNS&format=png" alt=""
+                        style="width:30px;height:30px;"></button>
+                <button id="repeatBtn" onclick="repeat()"><img
+                        src="https://img.icons8.com/?size=512&id=fUY8Y23ztpe5&format=png" alt=""
+                        style="width:30px;height:30px;"></button>
+
+                <!--  <button id="repeatAl" onclick=" repeatAll()">RepeatAll</button> -->
             </div>
 
                
